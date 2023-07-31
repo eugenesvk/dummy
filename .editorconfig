@@ -1,5 +1,4 @@
-# this is the top-most EditorConfig file (EditorConfig.org)
-root = true
+root = true # this is the top-most EditorConfig file (EditorConfig.org)
 
 [*]
 charset                 	= utf-8
@@ -10,10 +9,17 @@ indent_style            	= space
 indent_size             	= 2
 
 [*.{yml,json}]
-indent_size = 2
+indent_size	= 2
 
 [*.{md,markdown}]
-trim_trailing_whitespace = false # don't trim trailing spaces because markdown syntax allows that
+trim_trailing_whitespace	= false # don't trim trailing spaces because markdown syntax allows that
 
 [{makefile,Makefile,MAKEFILE}]
-indent_style = tab
+indent_style	= tab
+
+[justfile]
+indent_style	= tab
+
+[{.travis.yml, TODO}]
+indent_style	= space
+indent_size 	= 2
