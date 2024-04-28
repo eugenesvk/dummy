@@ -7,6 +7,6 @@ use helper::helper	::*;
 #[path="libmod/[libmod].rs"] pub mod libmod;
 use crate::libmod::ret42;
 
-fn lib() {
-  ret42();
+pub fn lib() -> i32 {
+  ret42()
 }
