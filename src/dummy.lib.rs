@@ -4,7 +4,7 @@ use helper        	::*; // gets macros
 use helper::alias 	::*;
 use helper::helper	::*;
 
-pub mod libmod;
+#[path="libmod/[libmod].rs"] pub mod libmod;
 use crate::libmod::ret42;
 
 fn lib() {
