@@ -7,31 +7,26 @@
 //! It's integrated into the `cargo` command line by using an alias in `.cargo/config`<br>
 //! See [cargo-xtask](https://github.com/matklad/cargo-xtask)
 
-use anyhow::{Result,bail};
-use std::{env, path::PathBuf};
+extern crate helper;
+use ::helper            	::*; // gets macros :: prefix needed due to proc macro expansion
+pub use helper_proc     	::*; // gets proc macros
+pub use ::helper::alias 	::*;
+pub use ::helper::helper	::*;
+
+use anyhow::{Result,Context,bail};
+use std  	::{env,fs,
+  path   	::{Path,PathBuf},
+  process	::{Command,Stdio},
+};
 // use xshell::{cmd, Shell};
 
-pub mod tasks {
-  use anyhow::{Result,bail};
-  use indoc::formatdoc;
-
-  pub fn docgen    () -> Result<()> {Ok(())}
-  pub fn querycheck() -> Result<()> {Ok(())}
-
-  pub fn print_help() {
-    let help_out = formatdoc!("
-      Use: ‘cargo x <task>’, where <task> is one of ↓
-        docgen     \tGenerate files to be included somewhere
-        query-check\tCheck the validity of some queries"
-    );
-    println!("{}", help_out);
-  }
+fn main() -> anyhow::Result<()> {
+  try_main()
 }
-
 use dummy_lib::*;
-fn main() -> Result<()> {
+fn try_main() -> anyhow::Result<()> {
   let task = env::args().nth(1);
-  println!("task_arg1 = {:?} lib = {:?}", task, dummy_lib::lib());
+  p!("task_arg1 = {:?} lib = {:?}", task, dummy_lib::lib());
   match task {
     None           	=> tasks::print_help(),
     Some(t)        	=> match t.as_str() {
@@ -42,3 +37,24 @@ fn main() -> Result<()> {
   };
   Ok(())
 }
+
+
+pub mod tasks {
+  use crate::*;
+
+  pub fn docgen    () -> Result<()> {Ok(())}
+  pub fn querycheck() -> Result<()> {Ok(())}
+
+  pub fn print_help() {
+    use indoc::formatdoc;
+    let help_out = formatdoc!("
+      Use: ‘cargo x <task>’, where <task> is one of ↓
+        docgen     \tGenerate files to be included somewhere
+        query-check\tCheck the validity of some queries"
+    );
+    pe!("{}", help_out);
+  }
+}
+
+fn project_root() -> PathBuf {Path::new(&env!("CARGO_MANIFEST_DIR")).ancestors().nth(1).unwrap().into()}
+fn dist_dir    () -> PathBuf {project_root().join("target/dist")}
