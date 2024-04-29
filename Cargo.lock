@@ -91,6 +91,7 @@ dependencies = [
  "anyhow",
  "faccess",
  "helper",
+ "helper_proc",
  "log",
  "stderrlog",
 ]
@@ -109,6 +110,13 @@ dependencies = [
 [[package]]
 name = "helper"
 version = "0.1.0"
+
+[[package]]
+name = "helper_proc"
+version = "0.1.0"
+dependencies = [
+ "helper",
+]
 
 [[package]]
 name = "hermit-abi"
@@ -426,6 +434,7 @@ dependencies = [
  "dummy",
  "faccess",
  "helper",
+ "helper_proc",
  "indoc",
  "log",
  "stderrlog",
