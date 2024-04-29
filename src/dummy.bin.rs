@@ -4,7 +4,7 @@ use helper        	::*; // gets macros
 use helper::alias 	::*;
 use helper::helper	::*;
 
-#[path="binmod/[binmod].rs"] pub mod binmod;
+_mod!(binmod); //→ #[path="binmod/[binmod].rs"] pub mod binmod;
 use crate::binmod::print42;
 
 fn main() {
