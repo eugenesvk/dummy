@@ -6,7 +6,7 @@ edition    	= "2021"
 license    	= "MIT"
 
 [dependencies]
-# bitflags  	= "2.3.3"
+# bitflags    	= "2.3.3"
 # indexmap    	= "2.0.0"
 # aho-corasick	= "1.0.5"
 # chrono      	= "0.4.31"
