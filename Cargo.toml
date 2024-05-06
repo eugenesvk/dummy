@@ -30,7 +30,13 @@ log	= "0.4"
 [profile.release]
 # opt        	for      	size
 strip        	= true   	# Auto strip symbols from the binary (included by default on Linux/macOS)
-opt-level    	= "z"    	# |3|     optimize for size
+opt-level    	= 3      	# |3|     s=size, z=size+
 lto          	= true   	# |false| Sets link-time optimization.
 codegen-units	= 1      	# |16|    reduce parallel code generation
 panic        	= "abort"	# |unwind| save ~20k w/o drop-on-panic cleanup and std::panic::catch_unwind
+
+# Overrides doc.rust-lang.org/nightly/cargo/reference/profiles.html#overrides
+[profile.dev.package."*"] # panic/lto/rpath can't be overriden
+opt-level	= 3 	# build dependencies in release mode to make the main app faster
+[profile.dev.build-override]
+opt-level	= 3	# build scripts and proc-macros in releas mode to make them faster
