@@ -3,6 +3,7 @@ name   	= "dummy"
 version	= "0.1.0"
 authors	= ["{{authors}}"]
 edition	= "2021"
+build  	= "build.rs"
 
 [workspace]
 members = ["./","helper","helper_proc","xtask"]	# relative to the workspace root
