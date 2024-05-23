@@ -41,3 +41,8 @@ panic        	= "abort"	# |unwind| save ~20k w/o drop-on-panic cleanup and std::
 opt-level	= 3 	# build dependencies in release mode to make the main app faster
 [profile.dev.build-override]
 opt-level	= 3	# build scripts and proc-macros in releas mode to make them faster
+
+[lint.rust]
+non_snake_case        	= "allow"
+non_upper_case_globals	= "allow"
+non_camel_case_types  	= "allow"
