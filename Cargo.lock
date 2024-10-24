@@ -90,8 +90,8 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "faccess",
- "helper",
- "helper_proc",
+ "helperes",
+ "helperes_proc",
  "log",
  "stderrlog",
 ]
@@ -108,15 +108,21 @@ dependencies = [
 ]
 
 [[package]]
-name = "helper"
+name = "helperes"
 version = "0.1.0"
+source = "git+https://github.com/eugenesvk/helperes.git?tag=0.1.0#4e913ac4de69f0429e11f9eeee07c2fc647e66b3"
+dependencies = [
+ "anyhow",
+ "faccess",
+ "helperes_proc",
+ "log",
+ "stderrlog",
+]
 
 [[package]]
-name = "helper_proc"
+name = "helperes_proc"
 version = "0.1.0"
-dependencies = [
- "helper",
-]
+source = "git+https://github.com/eugenesvk/helperes-proc.git?tag=0.1.0#cae41add2547ba22c23f5c1463183209258055f5"
 
 [[package]]
 name = "hermit-abi"
@@ -433,8 +439,8 @@ dependencies = [
  "anyhow",
  "dummy",
  "faccess",
- "helper",
- "helper_proc",
+ "helperes",
+ "helperes_proc",
  "indoc",
  "log",
  "stderrlog",
