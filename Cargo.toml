@@ -6,7 +6,7 @@ edition	= "2021"
 build  	= "build.rs"
 
 [workspace]
-members = ["./","helper","helper_proc","xtask"]	# relative to the workspace root
+members = ["./","xtask"]	# relative to the workspace root
 
 [[bin]]
 name	= "dummy_bin"
