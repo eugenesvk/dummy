@@ -7,11 +7,12 @@
 //! It's integrated into the `cargo` command line by using an alias in `.cargo/config`<br>
 //! See [cargo-xtask](https://github.com/matklad/cargo-xtask)
 
-extern crate helper;
-use ::helper            	::*; // gets macros :: prefix needed due to proc macro expansion
-pub use helper_proc     	::*; // gets proc macros
-pub use ::helper::alias 	::*;
-pub use ::helper::helper	::*;
+extern crate helperes      as h    ;
+extern crate helperes_proc as hproc;
+use ::h            	::*; // gets macros :: prefix needed due to proc macro expansion
+pub use hproc      	::*; // gets proc macros
+pub use ::h::alias 	::*;
+pub use ::h::helper	::*;
 
 use anyhow::{Result,Context,bail};
 use std  	::{env,fs,
