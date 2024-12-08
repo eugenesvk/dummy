@@ -63,4 +63,8 @@ Thumbs.db
 /callgrind.out.justfile
 /dist
 /target
+**/*.rs.bk
+# rustfmt backup
 
+# Misc
+mise.local.toml
