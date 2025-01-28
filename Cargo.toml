@@ -21,7 +21,7 @@ crate-type	= ['lib','cdylib']
 helperes     	= {git="https://github.com/eugenesvk/helperes.git"     } #, tag="0.1.2"
 helperes_proc	= {git="https://github.com/eugenesvk/helperes-proc.git"} #, tag="0.1.0"
 log          	= "0.4"
-stderrlog    	= "0.5"
+# stderrlog  	= "0.6"
 anyhow       	= "1.0"
 faccess      	= "0.2"
 docpos       	= "0.2.0" #add doc comments after items, not before them
