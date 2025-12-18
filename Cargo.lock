@@ -24,17 +24,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c042108f3ed77fd83760a5fd79b53be043192bb3b9dba91d8c574c0ada7850c8"
 
 [[package]]
-name = "atty"
-version = "0.2.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d9b39be18770d11421cdb1b9947a45dd3f37e93092cbf377614828a319d5fee8"
-dependencies = [
- "hermit-abi",
- "libc",
- "winapi",
-]
-
-[[package]]
 name = "autocfg"
 version = "1.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -107,10 +96,9 @@ dependencies = [
  "anyhow",
  "docpos",
  "faccess",
- "helperes 0.1.2",
+ "helperes",
  "helperes_proc",
  "log",
- "stderrlog",
 ]
 
 [[package]]
@@ -132,20 +120,8 @@ dependencies = [
 
 [[package]]
 name = "helperes"
-version = "0.1.0"
-source = "git+https://github.com/eugenesvk/helperes.git?tag=0.1.0#99a5d662b24b48a9cb4e78ec6929f205890f2cb9"
-dependencies = [
- "anyhow",
- "faccess",
- "helperes_proc",
- "log",
- "stderrlog",
-]
-
-[[package]]
-name = "helperes"
-version = "0.1.2"
-source = "git+https://github.com/eugenesvk/helperes.git?tag=0.1.2#4cb6157a603b5a6355ce1f229d41cfa49467d983"
+version = "0.1.3"
+source = "git+https://github.com/eugenesvk/helperes.git#cbcdfb3ec5e2544e75c779d1845dc2f1ed35ea92"
 dependencies = [
  "anyhow",
  "faccess",
@@ -156,17 +132,14 @@ dependencies = [
 
 [[package]]
 name = "helperes_proc"
-version = "0.1.0"
-source = "git+https://github.com/eugenesvk/helperes-proc.git?tag=0.1.0#cae41add2547ba22c23f5c1463183209258055f5"
+version = "0.2.0"
+source = "git+https://github.com/eugenesvk/helperes-proc.git#21bc36978c640a5b11253a30cf00d4f90c5fc8de"
 
 [[package]]
 name = "hermit-abi"
-version = "0.1.19"
+version = "0.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "62b467343b94ba476dcb2500d242dadbb39557df889310ac77c5d99100aaac33"
-dependencies = [
- "libc",
-]
+checksum = "fc0fef456e4baa96da950455cd02c081ca953b141298e41db3fc7e36b1da849c"
 
 [[package]]
 name = "iana-time-zone"
@@ -196,6 +169,17 @@ name = "indoc"
 version = "2.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b248f5224d1d606005e02c97f5aa4e88eeb230488bcc03bc9ca4d7991399f2b5"
+
+[[package]]
+name = "is-terminal"
+version = "0.4.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3640c1c38b8e4e43584d8df18be5fc6b0aa314ce6ebf51b53313d4306cca8e46"
+dependencies = [
+ "hermit-abi",
+ "libc",
+ "windows-sys",
+]
 
 [[package]]
 name = "itertools"
@@ -268,12 +252,11 @@ checksum = "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
 
 [[package]]
 name = "stderrlog"
-version = "0.5.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "69a26bbf6de627d389164afa9783739b56746c6c72c4ed16539f4ff54170327b"
+version = "0.6.0"
+source = "git+https://github.com/eugenesvk/stderrlog-rs#966708dfd2471b9f744f4720906bb8affde24123"
 dependencies = [
- "atty",
  "chrono",
+ "is-terminal",
  "log",
  "termcolor",
  "thread_local",
@@ -490,9 +473,8 @@ dependencies = [
  "anyhow",
  "dummy",
  "faccess",
- "helperes 0.1.0",
+ "helperes",
  "helperes_proc",
  "indoc",
  "log",
- "stderrlog",
 ]
