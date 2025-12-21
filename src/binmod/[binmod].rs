@@ -9,7 +9,6 @@ pub use ::h::helper	::*;
 use std::error::Error;
 use std::result;
 
-type Result<T> = result::Result<T, Box<dyn Error>>;
 pub fn print42() -> Result<()> {p!("{}",42)?; Ok(())}
 
 use std::path::PathBuf;
