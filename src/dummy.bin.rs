@@ -9,13 +9,12 @@ pub use ::h::alias 	::*;
 pub use ::h::helper	::*;
 
 _mod!(binmod); //→ #[path="binmod/[binmod].rs"] pub mod binmod;
-use crate::binmod::print42;
+use crate::binmod::main_cli; //print42,}
 
-use std::error::Error;
-use std::result;
+pub use dummy_lib::libmod::*;
 
-type Result<T> = result::Result<T, Box<dyn Error>>;
 fn main() -> Result<()> {
-  print42()?;
+  // print42()?;
+  main_cli()?;
   Ok(())
 }

@@ -5,9 +5,10 @@ pub use hproc      	::*; // gets proc macros
 pub use ::h::alias 	::*;
 pub use ::h::helper	::*;
 // use crate::*;
+pub use dummy_lib::libmod::*;
 
-use std::error::Error;
-use std::result;
+pub mod cli_opt;
+use cli_opt::*;
 
 pub fn print42() -> Result<()> {p!("{}",42)?; Ok(())}
 
@@ -20,4 +21,10 @@ use docpos::*;
                                      /// pos-doc for `field2_longer` line 2
                                      ///! pre-doc for `paths` at `field2_longer` (after `///!`)
   pub paths        : Vec   <PathBuf>, // no doc comments allowed here, use `///!` in the previous field
+}
+
+pub fn main_cli() -> Result<()> {
+  let opt = options().run();
+  p!("got the followin arguments: fmt={}\nlog={}\npaths={:?}",opt.fmt,opt.log,opt.paths)?;
+  Ok(())
 }
