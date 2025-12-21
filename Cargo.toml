@@ -25,6 +25,8 @@ log          	= "0.4"
 anyhow       	= "1.0"
 faccess      	= "0.2"
 docpos       	= "0.2.0" #add doc comments after items, not before them
+bpaf         	= {version="0.9.20",features=["owo-colors"]}
+owo-colors   	= "4.2.3"
 
 [build-dependencies]
 log	= "0.4"
