@@ -25,7 +25,8 @@ log          	= "0.4"
 anyhow       	= "1.0"
 faccess      	= "0.2"
 docpos       	= "0.2.0" #add doc comments after items, not before them
-bpaf         	= {version="0.9.20",features=["owo-colors"]}
+# bpaf       	= {version="0.9.20",features=["owo-colors"]}
+bpaf         	= {git="https://github.com/eugenesvk/bpaf.git",features=["owo-colors"]} #,rev="f9909d4a196134735422e69a291e0051b296c548",tag="0.9.2001"
 owo-colors   	= "4.2.3"
 
 [build-dependencies]
