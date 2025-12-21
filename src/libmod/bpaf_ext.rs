@@ -1,3 +1,4 @@
+/*
 use std::str    	::FromStr;
 //use bpaf      	::{*, long as l, short as s, positional as pos}; // short names to allow starting builders
 use bpaf::params	::{NamedArg, ParseArgument, ParsePositional};
@@ -33,3 +34,4 @@ impl      BpafDocAlias for Doc {
   fn x  (&mut self, text:&str) {self.invalid (text);}
   fn inv(&mut self, text:&str) {self.invalid (text);}
 }
+*/
