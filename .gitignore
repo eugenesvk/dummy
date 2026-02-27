@@ -10,6 +10,17 @@ ToDo.md
 # vim
 *~
 .*.swp
+# VS Code
+.vscode
+# IntelliJ
+*.iml
+.idea
+
+# npm
+node_modules
+# Sourcemaps
+*.map
+
 # (macOS)
 .DS_Store
 .AppleDouble
