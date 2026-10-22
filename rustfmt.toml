@@ -1,4 +1,4 @@
-# 1.6.0
+# 1.7.1
 #✗=unstable
 version                         	= "Two" 	#×One backwards-compatible with 1.0, others backwards compatible within a major version number |One|Two¦ rust-lang.github.io/rustfmt/?version=v2.0.0-rc.2
 unstable_features               	= false 	#F Enable unstable features on the unstable channel
@@ -39,6 +39,7 @@ format_macro_bodies   	= false	#✗T bodies of macros
   #                   	       	     $a = $b + $c;
 skip_macro_invocations	= []   	#✗[] Skip formatting bodies of macro invocations with these names. `*` prevents any; no impact on macro≝
 format_generated_files	= true 	#×T generated if first 5 lines contain a `@generated` comment marker. Ignored for stin
+  generated_marker_line_search_limit = 5 #×5 Number of lines to check for a @generated pragma header from file top. 0≝all non-gen. No effect if format_generated_files
 
 # One-liners
 empty_item_single_line	= true	#T Put empty-body functions and impls     	on a single line
@@ -72,7 +73,7 @@ trailing_comma              	= "Vertical"  	# How to handle trailing commas for 
 match_block_trailing_comma  	= true        	#F Put a trailing comma after a block based match arm (non-block arms are not affected)
 space_before_colon          	= false       	#✗F Leave a space before the colon
 space_after_colon           	= false       	#✗T Leave a space after the colon
-spaces_around_ranges        	= false       	#F Put spaces around the .., ..=, and ... range operators
+spaces_around_ranges        	= false       	#F Put spaces around the .., ..=, and … range operators
 # space_around_attr_eq      	= false       	#✗T wrap '=' in spaces in attributes
   #                         	              	#[cfg(not(target_os = "false"))]
   #                         	              	#[cfg(not(target_os="true"))]
@@ -137,7 +138,7 @@ condense_wildcard_suffixes	= true   	#✗F Replace strings of _ wildcards by a s
 # required_version        	= "2.0.0"	#✗|CARGO_PKG_VERSION| Require a specific version of rustfmt. If you want to make sure that the specific version of rustfmt is used in your CI, use this option. {CARGO_PKG_VERSION}
 # disable_all_formatting  	= false  	#F Don't reformat anything
 # skip_children           	= false  	#F Don't reformat out of line modules
-hide_parse_errors         	= false  	#✗F ... if the parser failed to parse files
+show_parse_errors         	= true   	#✗T  if the parser failed to parse files
 error_on_unformatted      	= false  	#✗F Error if unable to get comments or string literals within max_width, or they are left with trailing whitespaces {false, true}
 # ignore                  	= []     	# Skip formatting files/dirs matching this pattern (=.gitignore, use / in paths, \ not supported)
 
