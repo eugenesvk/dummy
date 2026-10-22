@@ -1,6 +1,6 @@
-# 1.7.1
+# rust-lang.github.io/rustfmt/?version=v1.8.0
 #✗=unstable
-version                         	= "Two" 	#×One backwards-compatible with 1.0, others backwards compatible within a major version number |One|Two¦ rust-lang.github.io/rustfmt/?version=v2.0.0-rc.2
+style_edition                   	= 2024  	#×2015¦2018¦2021
 unstable_features               	= false 	#F Enable unstable features on the unstable channel
 # Width                         	        	#individual widths ≤max_width, if scaled=% of max_width
 max_width                       	= 120   	#100 max width of each line before falling to vertical formatting
@@ -98,7 +98,7 @@ combine_control_expr        	= true            	#✗T Combine control expression
   #                         	                  	 fn example() {
   #                         	                  	   foo!(if x {  vs foo!(
   #                         	                  	                     if x {
-overflow_delimited_expr     	= true            	#✗F When structs, slices, arrays, and block/array-like macros are used as the last argument in an expression list, allow them to overflow (like blocks/closures) instead of being indented on a new line
+overflow_delimited_expr     	= true            	#✗T in 2024 When structs, slices, arrays, and block/array-like macros are used as the last argument in an expression list, allow them to overflow (like blocks/closures) instead of being indented on a new line
   #                         	                  	foo(ctx, True {
   #                         	                  	foo(
   #                         	                  	    ctx,
