@@ -1,21 +1,24 @@
+# 1.6.0
 #✗=unstable
-version                        	= "Two" 	# |One| backwards-compatible with 1.0, others backwards compatible within a major version number |One|Two¦ rust-lang.github.io/rustfmt/?version=v2.0.0-rc.2
-unstable_features              	= false 	#F Enable unstable features on the unstable channel
-# Width                        	        	#individual widths ≤max_width, if scaled=% of max_width
-max_width                      	= 100   	#|100| max width of each line before falling to vertical formatting
-# width_heuristics             	= "Max" 	#✗2|Scaled¦Off¦Max¦
- #fn_call_width                	= 100   	#|70%| args of a function call
- #attr_fn_like_width           	= 110   	#|70%| args of a function-like attributes
- #struct_lit_width             	= 100   	#|18%| body of a struct literal
- #struct_variant_width         	= 100   	#|35%| body of a struct variant
- #array_width                  	= 100   	#|60%| array literal
- #chain_width                  	= 100   	#|60%| chain to fit on one line
- #single_line_if_else_max_width	= 100   	#|50%| length for single line if-else expressions
-error_on_line_overflow         	= false 	#F✗ Error if Rustfmt is unable to get all lines within max_width, except for comments and string literals. If this happens, then it is a bug in Rustfmt. You might be able to work around the bug by refactoring your code to avoid long/complex expressions, usually by extracting a local variable or using a shorter name {false, true}
-#write_mode                    	= "Diff"	# Used for debugging rustfmt configurations
+version                         	= "Two" 	#×One backwards-compatible with 1.0, others backwards compatible within a major version number |One|Two¦ rust-lang.github.io/rustfmt/?version=v2.0.0-rc.2
+unstable_features               	= false 	#F Enable unstable features on the unstable channel
+# Width                         	        	#individual widths ≤max_width, if scaled=% of max_width
+max_width                       	= 120   	#100 max width of each line before falling to vertical formatting
+# width_heuristics              	= "Max" 	#✗2|Scaled¦Off¦Max¦
+ #fn_call_width                 	= 100   	#70% args of a function call
+ #attr_fn_like_width            	= 110   	#70% args of a function-like attributes
+ #struct_lit_width              	= 100   	#18% body of a struct literal
+ #struct_variant_width          	= 100   	#35% body of a struct variant
+ #array_width                   	= 100   	#60% array literal
+ #chain_width                   	= 100   	#60% chain to fit on one line
+ #single_line_if_else_max_width 	= 100   	#50% length for single line if-else expressions
+ #single_line_let_else_max_width	=  90   	#50% length for single line if-let  expressions. 0=divergent `else` block will always be formatted over multiple lines
+doc_comment_code_block_width    	= 120   	#×100≤max_width  code snippets included in doc comments. IF format_code_in_doc_comments
+error_on_line_overflow          	= false 	#F✗ Error if Rustfmt is unable to get all lines within max_width, except for comments and string literals. If this happens, then it is a bug in Rustfmt. You might be able to work around the bug by refactoring your code to avoid long/complex expressions, usually by extracting a local variable or using a shorter name {false, true}
+#write_mode                     	= "Diff"	# Used for debugging rustfmt configurations
+short_array_element_width_threshold = 10 #10≤max_width width threshold for an array element to be considered "short", then array can be formatted in mixed/compressed style, not vertically
 
-
-use_small_heuristics	= "Max" 	# ?use different formatting for items and expressions if they satisfy a heuristic notion of 'small' |Default|Off¦Max¦
+use_small_heuristics	= "Max"	# ?use different formatting for items and expressions if they satisfy a heuristic notion of 'small' |Default|Off¦Max¦
 indent_style        	= "Block" #✗Indent on expressions or items |Block|Visual¦
 
 # Comments
@@ -26,14 +29,16 @@ normalize_comments         	= false	#✗F Convert /* */ comments to // comments 
 normalize_doc_attributes   	= true 	#✗F Convert #![doc] and #[doc] attributes to //! and /// doc comments
 
 # Format scope
-format_strings       	= false	#✗F string literals where necessary (insert \ in long ones)
-format_macro_matchers	= false	#✗F metavariable matching patterns in macros
-  #                  	       		($a: ident : $b: ty) => {
-  #                  	       		($a:ident : $b:ty) => {
-format_macro_bodies  	= false	#✗T bodies of macros
-  #                  	       	($a: ident $b: ident $c: ident) => { $a=$b+$c; };  false
-  #                  	       	($a: ident $b: ident $c: ident) => {               true
-  #                  	       	     $a = $b + $c;
+format_strings        	= false	#✗F string literals where necessary (insert \ in long ones)
+format_macro_matchers 	= false	#✗F metavariable matching patterns in macros
+  #                   	       		($a: ident : $b: ty) => {
+  #                   	       		($a:ident : $b:ty) => {
+format_macro_bodies   	= false	#✗T bodies of macros
+  #                   	       	($a: ident $b: ident $c: ident) => { $a=$b+$c; };  false
+  #                   	       	($a: ident $b: ident $c: ident) => {               true
+  #                   	       	     $a = $b + $c;
+skip_macro_invocations	= []   	#✗[] Skip formatting bodies of macro invocations with these names. `*` prevents any; no impact on macro≝
+format_generated_files	= true 	#×T generated if first 5 lines contain a `@generated` comment marker. Ignored for stin
 
 # One-liners
 empty_item_single_line	= true	#T Put empty-body functions and impls     	on a single line
@@ -42,14 +47,15 @@ fn_single_line        	= true	#T Put single-expression functions        	on a si
 where_single_line     	= true	#✗T Forces the where clause to be laid out	on a single line
 
 # Imports
-imports_indent	= "Visual"	#✗Indent style of imports |Block|Visual¦
-  #           	          	use foo::{
-  #           	          	    block1,
-  #           	          	    block2,
-  #           	          	use foo::{visual1,
-  #           	          	          visual2};
-imports_layout 	= "Mixed"   	# Item layout inside a imports block "Mixed", "Horizontal", "HorizontalVertical", "Vertical"
-# group_imports	= "Preserve"	# Preserve, StdExternalCrate
+imports_indent      	= "Visual"  	#✗Indent style of imports |Block|Visual¦
+  #                 	            	use foo::{
+  #                 	            	    block1,
+  #                 	            	    block2,
+  #                 	            	use foo::{visual1,
+  #                 	            	          visual2};
+imports_layout      	= "Mixed"   	# Item layout inside a imports block "Mixed", "Horizontal", "HorizontalVertical", "Vertical"
+# group_imports     	= "Preserve"	# Preserve, StdExternalCrate
+#imports_granularity	= "Preserve"	#×Preserve|Crate¦Module¦Item¦One   Imports will be merged or split to level of granularity. Will not modify with comments if those can be lost/misplaced
 
 # Order
 reorder_imports   	= true	#T import/extern crate statements: alphabetically in groups (a group is separated by a newline)
@@ -113,7 +119,7 @@ fn_params_layout            	= "Compressed"    	# layout of pars in a function |
 brace_style                 	= "PreferSameLine"	#✗Brace style for items                  	|SameLineWhere|AlwaysNextLine¦PreferSameLine¦
 control_brace_style         	= "AlwaysSameLine"	# Brace style for control flow constructs	|AlwaysSameLine|AlwaysNextLine¦ClosingNextLine¦
 # edition                   	= "2024"          	# picked up from Cargo.toml
-# license_template_path     	= ""              	#✗Check whether beginnings of files match a license template ""
+hex_literal_case            	= "Lower"         	#×Preserve¦Upper¦Lower
 
 
 inline_attribute_width    	= 20     	# Write an item and its attribute on the same line if their combined width is below a threshold {0}
@@ -134,8 +140,10 @@ condense_wildcard_suffixes	= true   	#✗F Replace strings of _ wildcards by a s
 hide_parse_errors         	= false  	#✗F ... if the parser failed to parse files
 error_on_unformatted      	= false  	#✗F Error if unable to get comments or string literals within max_width, or they are left with trailing whitespaces {false, true}
 # ignore                  	= []     	# Skip formatting files/dirs matching this pattern (=.gitignore, use / in paths, \ not supported)
-# emit_mode               	= "Files"	#
-# make_backup             	= false  	# {false, true}
 
+# Internal
+# emit_mode  	= "Files"	#
+# make_backup	= false  	# {false, true} use --backup
+# print_misformatted_file_names #use -l or --files-with-diff
 
 # color	= "Auto"	# removed in 2.0 Whether to use colored output or not. {"Auto", "Always", "Never"}
