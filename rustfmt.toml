@@ -1,6 +1,6 @@
-# rust-lang.github.io/rustfmt/?version=v1.8.0
+# rust-lang.github.io/rustfmt/?version=v1.9.0
 #✗=unstable
-style_edition                   	= 2024  	#×2015¦2018¦2021
+style_edition                   	= 2024  	#2015|2018¦2021¦2024¦×2027
 unstable_features               	= false 	#F Enable unstable features on the unstable channel
 # Width                         	        	#individual widths ≤max_width, if scaled=% of max_width
 max_width                       	= 120   	#100 max width of each line before falling to vertical formatting
@@ -114,6 +114,13 @@ enum_discrim_align_threshold	= 20              	#✗|0| max length of enum varia
   #                         	                  	    RandomLongVariantGoesHere = 10,
 match_arm_blocks            	= false           	#✗T Wrap the body of arms in blocks when it does not fit on the same line with the pattern of arms
 # match_arm_leading_pipes   	= "KeepExisting"  	#✗ include a leading pipe on match arms |Never|Always¦KeepExisting
+match_arm_indent            	= false           	#✗T If F, match arms will be formatted at the same indentation level as the outer match statement, so match blocks will only be indented once, not twice
+  #                         	                  	match value_true {
+  #                         	                  	  Enum::A => {}
+  #                         	                  	  Enum::B => {} }
+  #                         	                  	match value_false {
+  #                         	                  	Enum::A => {}
+  #                         	                  	Enum::B => {}  }
 force_multiline_blocks      	= false           	#✗F Force multiline closure and match arm bodies to be wrapped in a block
 fn_args_layout              	= "Compressed"    	# layout of args in a function |Tall|Compressed¦Vertical¦
 fn_params_layout            	= "Compressed"    	# layout of pars in a function |Tall|Compressed¦Vertical¦
@@ -121,7 +128,7 @@ brace_style                 	= "PreferSameLine"	#✗Brace style for items       
 control_brace_style         	= "AlwaysSameLine"	# Brace style for control flow constructs	|AlwaysSameLine|AlwaysNextLine¦ClosingNextLine¦
 # edition                   	= "2024"          	# picked up from Cargo.toml
 hex_literal_case            	= "Lower"         	#×Preserve¦Upper¦Lower
-
+float_literal_trailing_zero 	="IfNoPostfix"    	#×Preserve¦Always¦IfNoPostfix¦Never
 
 inline_attribute_width    	= 20     	# Write an item and its attribute on the same line if their combined width is below a threshold {0}
   #                       	         	[cfg(feature = "alloc")]                    // 0
