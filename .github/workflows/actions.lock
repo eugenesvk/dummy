@@ -3,6 +3,11 @@
 # Docs: https://gh.io/actions-lockfile
 version: 'v0.0.3'
 workflows:
+    '.github/workflows/publish.yml':
+        - 'actions/checkout@v7.0.1'
+    '.github/workflows/rust_check_dev.yml':
+        - 'actions/checkout@v7.0.1'
+        - 'swatinem/rust-cache@v2.9.3'
     '.github/workflows/security_GA_zizmor.yaml':
         - 'actions/checkout@v7.0.1'
         - 'astral-sh/setup-uv@v8.0.0'
@@ -17,3 +22,8 @@ dependencies:
         commit: 'sha1-cec208311dfd045dd5311c1add060b2062131d57'
         owner_id: 115962839
         repo_id: 846733598
+    'swatinem/rust-cache@v2.9.3':
+        ref: 'v2.9.3'
+        commit: 'sha1-d1527c8f67ef9af357290475d4af4b0fab8f12e0'
+        owner_id: 580492
+        repo_id: 298565987
