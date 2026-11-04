@@ -4,6 +4,7 @@ version	= "0.1.0"
 authors	= ["{{authors}}"]
 edition	= "2024"
 build  	= "build.rs"
+exclude	= [".github/*",".gitignore"]
 
 [workspace]
 members = ["./","xtask"]	# relative to the workspace root
