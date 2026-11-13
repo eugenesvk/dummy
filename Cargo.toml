@@ -5,6 +5,7 @@ authors	= ["{{authors}}"]
 edition	= "2024"
 build  	= "build.rs"
 exclude	= [".github/*",".gitignore"]
+# rust-version = "1.100.0" # min version, 2026-11-12
 
 [workspace]
 members = ["./","xtask"]	# relative to the workspace root
